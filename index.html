@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ahmad Zulham Hamdan — Data Engineer</title>
+  <meta name="description" content="Data Engineer specializing in real-time streaming, data warehousing, and cloud-native pipelines. Available for remote contracts globally."/>
+  <style>
+    :root {
+      --bg: #0d1117; --bg2: #161b22; --bg3: #21262d;
+      --border: #30363d; --text: #c9d1d9; --muted: #8b949e;
+      --accent: #58a6ff; --green: #3fb950; --orange: #d29922;
+      --purple: #a371f7; --red: #f85149;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--text); }
+    .nav-links { display: flex; gap: 1.5rem; font-size: 0.9rem; }
+
+    /* HERO */
+    .hero { max-width: 900px; margin: 4rem auto 3rem; padding: 0 1.5rem; text-align: center; }
+    .avatar { width: 96px; height: 96px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--purple)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 0 auto 1.5rem; }
+    h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .hero-sub { font-size: 1.1rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .status-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; padding: 0.4rem 1rem; font-size: 0.85rem; margin-bottom: 2rem; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn { padding: 0.6rem 1.4rem; border-radius: 6px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: opacity .2s; }
+    .btn-primary { background: var(--accent); color: #0d1117; }
+    .btn-secondary { background: var(--bg3); color: var(--text); border: 1px solid var(--border); }
+    .btn:hover { opacity: 0.85; }
+
+    /* SKILLS */
+    section { max-width: 900px; margin: 0 auto 3rem; padding: 0 1.5rem; }
+    h2 { font-size: 1.3rem; font-weight: 600; margin-bottom: 1.2rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.6rem; }
+    .skill-tag { background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 0.4rem 0.8rem; font-size: 0.8rem; text-align: center; }
+    .skill-tag.streaming { border-color: #e6526f44; color: #f0a0b0; }
+    .skill-tag.warehouse { border-color: #29b5e844; color: #80d5f5; }
+    .skill-tag.transform  { border-color: #ff694b44; color: #ffb090; }
+    .skill-tag.infra      { border-color: #7b42bc44; color: #c090f5; }
+    .skill-tag.lang       { border-color: #3fb95044; color: #80d090; }
+
+    /* PROJECTS */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 1rem; }
+    .project-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; transition: border-color .2s, transform .2s; }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .project-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.6rem; }
+    .project-name { font-weight: 600; font-size: 0.95rem; color: var(--accent); }
+    .project-desc { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.8rem; line-height: 1.5; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 0.2rem 0.5rem; font-size: 0.75rem; color: var(--muted); }
+
+    /* STATS */
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
+    .stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 700; color: var(--accent); }
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+    .contact-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; display: flex; align-items: center; gap: 0.8rem; transition: border-color .2s; }
+    .contact-card:hover { border-color: var(--accent); }
+    .contact-icon { font-size: 1.4rem; }
+    .contact-label { font-size: 0.8rem; color: var(--muted); }
+    .contact-value { font-size: 0.9rem; font-weight: 500; }
+
+    footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">zulham-tech</span>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+    <a href="https://github.com/zulham-tech" target="_blank">GitHub</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="avatar">⚡</div>
+  <h1>Ahmad Zulham Hamdan</h1>
+  <p class="hero-sub">Data Engineer &amp; Backend Developer · Remote &amp; Freelance</p>
+  <div class="status-badge">
+    <span class="dot"></span>
+    Available for remote contracts &amp; freelance projects
+  </div>
+  <div class="hero-btns">
+    <a href="mailto:zulhamhamdan28@gmail.com" class="btn btn-primary">Hire Me</a>
+    <a href="https://linkedin.com/in/ahmad-zulham-665170279" target="_blank" class="btn btn-secondary">LinkedIn</a>
+    <a href="https://github.com/zulham-tech" target="_blank" class="btn btn-secondary">GitHub</a>
+  </div>
+</div>
+
+<section>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-num">14+</div><div class="stat-label">Data Pipeline Projects</div></div>
+    <div class="stat-card"><div class="stat-num">72K</div><div class="stat-label">Events/Hour Processed</div></div>
+    <div class="stat-card"><div class="stat-num">10+</div><div class="stat-label">Technologies Mastered</div></div>
+    <div class="stat-card"><div class="stat-num">3+</div><div class="stat-label">Years Experience</div></div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Tech Stack</h2>
+  <div class="skills-grid">
+    <span class="skill-tag streaming">Apache Kafka</span>
+    <span class="skill-tag streaming">Apache Flink</span>
+    <span class="skill-tag streaming">PySpark</span>
+    <span class="skill-tag streaming">Apache Airflow</span>
+    <span class="skill-tag warehouse">BigQuery</span>
+    <span class="skill-tag warehouse">Snowflake</span>
+    <span class="skill-tag warehouse">ClickHouse</span>
+    <span class="skill-tag warehouse">Cassandra</span>
+    <span class="skill-tag warehouse">Elasticsearch</span>
+    <span class="skill-tag warehouse">MongoDB</span>
+    <span class="skill-tag transform">dbt Core</span>
+    <span class="skill-tag transform">Delta Lake</span>
+    <span class="skill-tag transform">Great Expectations</span>
+    <span class="skill-tag infra">Docker</span>
+    <span class="skill-tag infra">Terraform</span>
+    <span class="skill-tag infra">GitHub Actions</span>
+    <span class="skill-tag infra">AWS S3 / GCS</span>
+    <span class="skill-tag lang">Python</span>
+    <span class="skill-tag lang">SQL</span>
+    <span class="skill-tag lang">Bash</span>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Featured Projects</h2>
+  <div class="projects-grid">
+
+    <a href="https://github.com/zulham-tech/lakehouse-olap-pipelines-flink-clickhouse" target="_blank" class="project-card" style="text-decoration:none;color:inherit">
+      <div class="project-header"><span class="project-name">Lakehouse OLAP Pipelines</span></div>
+      <p class="project-desc">Real-time OLAP analytics processing 72,000+ events/hour with Apache Flink and ClickHouse. End-to-end latency under 2 seconds.</p>
+      <div class="project-tags"><span class="tag">Flink</span><span class="tag">ClickHouse</span><span class="tag">Kafka</span><span class="tag">Delta Lake</span></div>
+    </a>
+
+    <a href="https://github.com/zulham-tech/iot-streaming-kafka-pyspark-bigquery" target="_blank" class="project-card" style="text-decoration:none;color:inherit">
+      <div class="project-header"><span class="project-name">IoT Streaming Pipeline</span></div>
+      <p class="project-desc">End-to-end IoT telemetry pipeline from MQTT devices through Kafka and PySpark Structured Streaming into BigQuery.</p>
+      <div class="project-tags"><span class="tag">Kafka</span><span class="tag">PySpark</span><span class="tag">BigQuery</span><span class="tag">MQTT</span></div>
+    </a>
+
+    <a href="https://github.com/zulham-tech/crypto-lambda-kafka-cassandra-snowflake" target="_blank" class="project-card" style="text-decoration:none;color:inherit">
+      <div class="project-header"><span class="project-name">Crypto Lambda Architecture</span></div>
+      <p class="project-desc">Lambda Architecture for crypto market data combining Cassandra speed layer (real-time) with Snowflake batch layer (analytics).</p>
+      <div class="project-tags"><span class="tag">Kafka</span><span class="tag">Cassandra</span><span class="tag">Snowflake</span><span class="tag">FastAPI</span></div>
+    </a>
+
+    <a href="https://github.com/zulham-tech/worldbank-etl-dbt-snowflake-airflow" target="_blank" class="project-card" style="text-decoration:none;color:inherit">
+      <div class="project-header"><span class="project-name">World Bank ETL</span></div>
+      <p class="project-desc">Production-grade ELT for 190+ countries and 1400+ economic indicators using dbt dimensional models on Snowflake with full test coverage.</p>
+      <div class="project-tags"><span class="tag">dbt</span><span class="tag">Snowflake</span><span class="tag">Airflow</span><span class="tag">ELT</span></div>
+    </a>
+
+    <a href="https://github.com/zulham-tech/nyc-taxi-flink-clickhouse" target="_blank" class="project-card" style="text-decoration:none;color:inherit">
+      <div class="project-header"><span class="project-name">NYC Taxi Real-time Analytics</span></div>
+      <p class="project-desc">Real-time streaming analytics on 3M+ NYC TLC trip records with Flink event-time windowing and ClickHouse live Grafana dashboards.</p>
+      <div class="project-tags"><span class="tag">Flink</span><span class="tag">ClickHouse</span><span class="tag">Grafana</span><span class="tag">Kafka</span></div>
+    </a>
+
+    <a href="https://github.com/zulham-tech/earthquake-monitor-elasticsearch-kibana" target="_blank" class="project-card" style="text-decoration:none;color:inherit">
+      <div class="project-header"><span class="project-name">Earthquake Monitor</span></div>
+      <p class="project-desc">Global seismic monitoring with geospatial indexing in Elasticsearch and Kibana heatmaps. Real-time M5+ alerts via USGS and BMKG feeds.</p>
+      <div class="project-tags"><span class="tag">Elasticsearch</span><span class="tag">Kibana</span><span class="tag">GeoSpatial</span><span class="tag">Kafka</span></div>
+    </a>
+
+    <a href="https://github.com/zulham-tech/reddit-sentiment-kafka-mongodb-nlp" target="_blank" class="project-card" style="text-decoration:none;color:inherit">
+      <div class="project-header"><span class="project-name">Reddit Sentiment Analysis</span></div>
+      <p class="project-desc">Live Reddit streaming pipeline with RoBERTa-based NLP sentiment classification stored in MongoDB time-series collections.</p>
+      <div class="project-tags"><span class="tag">Kafka</span><span class="tag">MongoDB</span><span class="tag">NLP</span><span class="tag">HuggingFace</span></div>
+    </a>
+
+    <a href="https://github.com/zulham-tech/wikimedia-lambda-flink-cassandra" target="_blank" class="project-card" style="text-decoration:none;color:inherit">
+      <div class="project-header"><span class="project-name">Wikimedia Event Streaming</span></div>
+      <p class="project-desc">Lambda architecture consuming live Wikipedia SSE edits with Flink speed layer and Cassandra for low-latency serving.</p>
+      <div class="project-tags"><span class="tag">Flink</span><span class="tag">Cassandra</span><span class="tag">SSE</span><span class="tag">Lambda Arch</span></div>
+    </a>
+
+    <a href="https://github.com/zulham-tech/nasa-delta-lake-s3-bigquery" target="_blank" class="project-card" style="text-decoration:none;color:inherit">
+      <div class="project-header"><span class="project-name">NASA Data Pipeline</span></div>
+      <p class="project-desc">Multi-cloud pipeline ingesting NASA Open APIs into Delta Lake medallion architecture on S3, replicated to BigQuery for analytics.</p>
+      <div class="project-tags"><span class="tag">Delta Lake</span><span class="tag">S3</span><span class="tag">BigQuery</span><span class="tag">PySpark</span></div>
+    </a>
+
+    <a href="https://github.com/zulham-tech/imf-elt-duckdb-bigquery" target="_blank" class="project-card" style="text-decoration:none;color:inherit">
+      <div class="project-header"><span class="project-name">IMF Economic Data ELT</span></div>
+      <p class="project-desc">Lightweight ELT using DuckDB for local in-process transformations of IMF WEO data before loading to BigQuery. No cluster needed.</p>
+      <div class="project-tags"><span class="tag">DuckDB</span><span class="tag">BigQuery</span><span class="tag">dbt</span><span class="tag">IMF API</span></div>
+    </a>
+
+    <a href="https://github.com/zulham-tech/batch-ingestion-github-weather-redshift" target="_blank" class="project-card" style="text-decoration:none;color:inherit">
+      <div class="project-header"><span class="project-name">Batch Ingestion Pipeline</span></div>
+      <p class="project-desc">Automated batch ELT from GitHub API and OpenWeatherMap via S3 staging into Amazon Redshift with dbt transformations and Airflow scheduling.</p>
+      <div class="project-tags"><span class="tag">Airflow</span><span class="tag">Redshift</span><span class="tag">dbt</span><span class="tag">S3</span></div>
+    </a>
+
+    <a href="https://github.com/zulham-tech/streaming-batch-pipelines-kafka-pyspark" target="_blank" class="project-card" style="text-decoration:none;color:inherit">
+      <div class="project-header"><span class="project-name">Streaming + Batch Pipelines</span></div>
+      <p class="project-desc">Reference implementation of unified streaming and batch pipelines sharing PySpark transformations with Delta Lake and Great Expectations quality checks.</p>
+      <div class="project-tags"><span class="tag">Kafka</span><span class="tag">PySpark</span><span class="tag">Delta Lake</span><span class="tag">Great Expectations</span></div>
+    </a>
+
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Get In Touch</h2>
+  <div class="contact-grid">
+    <a href="mailto:zulhamhamdan28@gmail.com" class="contact-card" style="text-decoration:none;color:inherit">
+      <span class="contact-icon">✉️</span>
+      <div><div class="contact-label">Email</div><div class="contact-value">zulhamhamdan28@gmail.com</div></div>
+    </a>
+    <a href="https://linkedin.com/in/ahmad-zulham-665170279" target="_blank" class="contact-card" style="text-decoration:none;color:inherit">
+      <span class="contact-icon">💼</span>
+      <div><div class="contact-label">LinkedIn</div><div class="contact-value">Ahmad Zulham Hamdan</div></div>
+    </a>
+    <a href="https://github.com/zulham-tech" target="_blank" class="contact-card" style="text-decoration:none;color:inherit">
+      <span class="contact-icon">🐙</span>
+      <div><div class="contact-label">GitHub</div><div class="contact-value">github.com/zulham-tech</div></div>
+    </a>
+    <div class="contact-card">
+      <span class="contact-icon">🌏</span>
+      <div><div class="contact-label">Location</div><div class="contact-value">Indonesia (Remote Worldwide)</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Built by Ahmad Zulham Hamdan · Zulham-tech Data Engineering · Open to remote &amp; freelance opportunities</p>
+</footer>
+
+</body>
+</html>
